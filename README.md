@@ -97,6 +97,29 @@ namespace:  11 bytes
 При попытке изменения файла /var/snap/microk8s/current/certs/csr.conf.template и последующей генерации сертификатов ломалась работа дашборда.  
 Решил проблему выключив дашборд, затем перегенерировав сертификаты и опять включив плагин.  
 ### Задание 2 - установить Kubectl ###  
+Установил kubectl по инструкции  
+Создал ~/.kube/config с помощью  
+```
+microk8s config >~/.kube/config
+```
+Протестировал работу командной строки
+```
+alex@uxtu-note:~/Study/kuber1$ kubectl get nodes
+NAME        STATUS   ROLES    AGE   VERSION
+uxtu-note   Ready    <none>   41m   v1.33.9
+alex@uxtu-note:~/Study/kuber1$ kubectl get pods -A
+NAMESPACE              NAME                                                    READY   STATUS    RESTARTS   AGE
+kube-system            calico-kube-controllers-79949b87d-64h9m                 1/1     Running   3          41m
+kube-system            calico-node-l46ln                                       1/1     Running   3          41m
+kube-system            coredns-ccd8f67bc-znksr                                 1/1     Running   3          41m
+kube-system            metrics-server-64fc948c75-v822x                         1/1     Running   3          38m
+kubernetes-dashboard   kubernetes-dashboard-api-57466f8556-5nvbl               1/1     Running   0          13m
+kubernetes-dashboard   kubernetes-dashboard-auth-9967db4fc-2bwzl               1/1     Running   0          13m
+kubernetes-dashboard   kubernetes-dashboard-kong-648658d45f-zhjgh              1/1     Running   0          13m
+kubernetes-dashboard   kubernetes-dashboard-metrics-scraper-84655b9bd8-nlm56   1/1     Running   0          13m
+kubernetes-dashboard   kubernetes-dashboard-web-658946f7f9-smz55               1/1     Running   0          13m
+```
 
+К дашборду подключился ранее 
 
 ### Задание 3 -  ###  
