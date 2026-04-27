@@ -48,6 +48,7 @@ NAME       STATUS   ROLES    AGE   VERSION
 kuber-vm   Ready    <none>   12m   v1.33.9
 alex@kuber-vm:~$ 
 ```
+### Задание 2 - установить Dashboard ###  
 Установил сервис dashboard  
 ```
 $ microk8s enable dashboard
@@ -94,4 +95,4 @@ namespace:  11 bytes
 Используя токен зашел на страницу https://localhost:8443/#/workloads?namespace=default
 
 
-### Задание 2 - использование команд microk8s ###  
+### Задание 3 -  ###  
