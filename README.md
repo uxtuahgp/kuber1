@@ -5,8 +5,7 @@
 Установил с помощью snap microk8s.  
 Дал права пользователю на доступ к microk8s.  
 Проверил статус, просмотрел список узлов и тд.  
-
-``  
+```
 alex@kuber-vm:~$ microk8s status --wait-ready
 microk8s is running
 high-availability: no
@@ -46,7 +45,9 @@ api-resources  auth           completion     create         diff           expla
 api-versions   autoscale      config         debug          drain          expose         logs           port-forward   run            top            
 alex@kuber-vm:~$ microk8s kubectl get nodes
 NAME       STATUS   ROLES    AGE   VERSION
-kuber-vm   Ready    <none>   12m   v1.33.9  
-``  
-  
+kuber-vm   Ready    <none>   12m   v1.33.9
+alex@kuber-vm:~$ 
+```
+
+    
 ### Задание 2 - использование команд microk8s ###  
