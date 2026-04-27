@@ -121,5 +121,3 @@ kubernetes-dashboard   kubernetes-dashboard-web-658946f7f9-smz55               1
 ```
 
 К дашборду подключился ранее 
-
-### Задание 3 -  ###  
