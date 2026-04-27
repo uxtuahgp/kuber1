@@ -48,6 +48,50 @@ NAME       STATUS   ROLES    AGE   VERSION
 kuber-vm   Ready    <none>   12m   v1.33.9
 alex@kuber-vm:~$ 
 ```
+Установил сервис dashboard  
+```
+$ microk8s enable dashboard
+Infer repository core for addon dashboard
+Enabling metrics-server
+Infer repository core for addon metrics-server
+...  
+Congratulations! You have just installed Kubernetes Dashboard in your cluster.
 
-    
+To access Dashboard run:
+  kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
+
+...
+microk8s kubectl describe secret -n kube-system microk8s-dashboard-token
+
+Use this token in the https login UI of the kubernetes-dashboard service.
+...  
+```
+Выполнил проброс порта сервиса dashboard  
+```
+alex@uxtu-note:~$ microk8s kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
+Forwarding from 127.0.0.1:8443 -> 8443
+Forwarding from [::1]:8443 -> 8443
+Handling connection for 8443
+...
+```
+Извлек сгенерированный токен   
+```
+alex@uxtu-note:~$ microk8s kubectl describe secret -n kube-system microk8s-dashboard-token
+Name:         microk8s-dashboard-token
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  kubernetes.io/service-account.name: default
+              kubernetes.io/service-account.uid: 448b6901-dd07-445f-b20f-0db1a454a3c1
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+token:      ...  
+ca.crt:     1123 bytes
+namespace:  11 bytes
+```
+Используя токен зашел на страницу https://localhost:8443/#/workloads?namespace=default
+
+
 ### Задание 2 - использование команд microk8s ###  
