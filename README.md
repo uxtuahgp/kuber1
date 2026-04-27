@@ -48,7 +48,7 @@ NAME       STATUS   ROLES    AGE   VERSION
 kuber-vm   Ready    <none>   12m   v1.33.9
 alex@kuber-vm:~$ 
 ```
-### Задание 2 - установить Dashboard ###  
+  
 Установил сервис dashboard  
 ```
 $ microk8s enable dashboard
@@ -93,6 +93,10 @@ ca.crt:     1123 bytes
 namespace:  11 bytes
 ```
 Используя токен зашел на страницу https://localhost:8443/#/workloads?namespace=default
+
+При попытке изменения файла /var/snap/microk8s/current/certs/csr.conf.template и последующей генерации сертификатов ломалась работа дашборда.  
+Решил проблему выключив дашборд, затем перегенерировав сертификаты и опять включив плагин.  
+### Задание 2 - установить Kubectl ###  
 
 
 ### Задание 3 -  ###  
